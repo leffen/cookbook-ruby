@@ -40,3 +40,10 @@ links.each do |ln|
     mode 0755
   end
 end
+
+template "/etc/profile.d/ruby.sh" do
+  source 'profile.sh.erb'
+  owner 'root'
+  group 'root'
+  mode 0755
+end

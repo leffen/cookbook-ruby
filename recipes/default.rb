@@ -28,14 +28,6 @@ include_recipe "apt"
 include_recipe "build-essential"
 
 include_recipe "ruby::remove_system_packages" if node[:ruby][:remove_packages]
-include_recipe "ruby::chef_wrappers"
-
-template "/etc/profile.d/ruby.sh" do
-  source 'profile_ruby.sh.erb'
-  owner 'root'
-  group 'root'
-  mode 0755
-end
 
 %w(wget zlib1g-dev libssl-dev libffi-dev libxml2-dev libncurses5-dev libreadline-dev libyaml-dev).each do |pkg|
   package pkg do
@@ -61,3 +53,5 @@ unless ruby_installed? then
     end
   end
 end
+
+include_recipe "ruby::chef_wrappers"
