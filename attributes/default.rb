@@ -1,3 +1,4 @@
+default[:ruby][:src_path] = 'ftp://ftp.ruby-lang.org/pub/ruby/1.9/'
 default[:ruby][:version] = '1.9.3-p327'
 
 default[:ruby][:system_packages] = ['ruby', 'ruby19']

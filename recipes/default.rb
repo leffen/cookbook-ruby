@@ -38,7 +38,7 @@ end
 unless ruby_installed? then
   execute "get & unpack #{ node[:ruby][:version] }" do
     user "root"
-    command "cd /usr/src && wget ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-#{ node[:ruby][:version] }.tar.bz2 && tar xjf ruby-#{ node[:ruby][:version] }.tar.bz2 && cd ruby-#{ node[:ruby][:version] }"
+    command "cd /usr/src && wget #{ node[:ruby][:src_path] }/ruby-#{ node[:ruby][:version] }.tar.bz2 && tar xjf ruby-#{ node[:ruby][:version] }.tar.bz2 && cd ruby-#{ node[:ruby][:version] }"
   end
 
   execute "configure & make #{ node[:ruby][:version] }" do
